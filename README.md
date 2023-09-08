@@ -40,7 +40,7 @@
 
 **Schritt 1- HERUNTERLADEN** 
 
-![KIMAI](/monthly-work-time-calculator/Dateien/Bilder/KIMAI_Herunterladen.png)
+![KIMAI](/KIMAI_Herunterladen.png)
 
 Öffnen Sie [Kimai](https://www.kimai.org/de/) (auf dem obigen Bild sehen Sie das Kimai Zeiterfassungssystem der HLE. Gehen Sie auf die "Meine Zeiten" Tab und laden Sie die Daten als csv-Datei herunter 
 

@@ -1,6 +1,6 @@
 ## ARTINER - ARBEITSZEITRECHNER FUR KIMAI
 
-![ARTINER.jpg](../Artiner.png)
+![ARTINER.jpg](/Artiner.png)
 
 ### MOTIVATION
 

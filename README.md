@@ -6,7 +6,7 @@
 
 + Um meine Arbeitsstunden im Auge zu behalten, trage ich meine Arbeitsstunden in [Kimai Zeiterfassung](https://www.kimai.org/de/) ein. 
 
-+ Am 15. eines jeden Monats muss ich eine [Excel-Tabelle](../Excel_Muster.jpg) mit meinen Arbeitsstunden der letzten 30 Tage an meinen Vorgesetzten HLE schicken.
++ Am 15. eines jeden Monats muss ich eine [Excel-Tabelle](/Excel_Muster.jpg) mit meinen Arbeitsstunden der letzten 30 Tage an meinen Vorgesetzten HLE schicken.
 
 + Aus diesem Grund muss ich jeden Monat die Daten aus Kimai in eine Excel-Tabelle übertragen.
 
@@ -18,13 +18,13 @@
 
 ### ÜBER ARTINER
 
-+ Artiner ist ein CLI-Tool, das die Daten der Arbeitsstunden aus einer [CSV-Datei](../April_Mai_Faraz.csv) (die von KIMAI exportiert wurde) ausliest und diese Daten nach Datum sortiert und in Form einer Tabelle darstellt. Diese Daten können nun einfach kopiert und in das Excel-Blatt eingefügt werden.
++ Artiner ist ein CLI-Tool, das die Daten der Arbeitsstunden aus einer [CSV-Datei](/Mai.csv) (die von KIMAI exportiert wurde) ausliest und diese Daten nach Datum sortiert und in Form einer Tabelle darstellt. Diese Daten können nun einfach kopiert und in das Excel-Blatt eingefügt werden.
 
-+ ![Unsorted](../Unsorted.png)
++ ![Unsorted](/Unsorted.png)
 
                                 Unsorted Data in Kimai
 
-+ ![Sorted](../Output_Tabelle.png)                  
++ ![Sorted](/Output_Tabelle.png)                  
 
                                     Sorted Data
     
@@ -40,11 +40,11 @@
 
 **Schritt 1- HERUNTERLADEN** 
 
-![KIMAI](../monthly-work-time-calculator/Dateien/Bilder/KIMAI_Herunterladen.png)
+![KIMAI](/monthly-work-time-calculator/Dateien/Bilder/KIMAI_Herunterladen.png)
 
 Öffnen Sie [Kimai](https://www.kimai.org/de/) (auf dem obigen Bild sehen Sie das Kimai Zeiterfassungssystem der HLE. Gehen Sie auf die "Meine Zeiten" Tab und laden Sie die Daten als csv-Datei herunter 
 
-Laden Sie nun [artiner.java](../backup.java) und [artiner.sh](../artiner.sh)
+Laden Sie nun [artiner.java](/backup.java) und [artiner.sh](/artiner.sh)
 
 **Schritt 2- **AUSFÜHREN (Linux)**
 
@@ -84,9 +84,9 @@ Allgemein kann ein Benutzer das Programm mit den folgenden Flags konfigurieren u
 
 + **-p oder --PauseOnly :** Nur den Bericht für die "Pause" ausgeben
  
-+ **-r oder --replacement :** Geben Sie den Dateipfad für die [ersatzdatei](../replacment.conf) an. Das Programm liest die Daten aus der Ersetzungsdatei und setzt sie in das Programm ein
++ **-r oder --replacement :** Geben Sie den Dateipfad für die [ersatzdatei](/replacment.conf) an. Das Programm liest die Daten aus der Ersetzungsdatei und setzt sie in das Programm ein
 
-+  **-C oder --configfile:**  Geben Sie den Dateipfad für die [Konfigurationsdatei](../artiner.conf) Datei
++  **-C oder --configfile:**  Geben Sie den Dateipfad für die [Konfigurationsdatei](/artiner.conf) Datei
 
 
 + **-o oder --OutputFormat :** Geben Sie das Ausgabeformat an: "T" für nur die Liste, "TL" für  Tabelle+List  
@@ -97,7 +97,7 @@ Allgemein kann ein Benutzer das Programm mit den folgenden Flags konfigurieren u
 **Fall 3- Konfigdatei**
 
  
-Verwenden Sie das Flag -C und geben Sie den Dateipfad der [Konfigurationsdatei](../artiner.conf) an, um das Tool mit dieser Datei zu konfigurieren
+Verwenden Sie das Flag -C und geben Sie den Dateipfad der [Konfigurationsdatei](/artiner.conf) an, um das Tool mit dieser Datei zu konfigurieren
 
 **Schritt 4- AUSGABE**- 
 
@@ -105,17 +105,17 @@ Das Programm gibt die sortierten Daten in dem vom Benutzer angegebenen Format au
                   
                                            OUTPUT TABELLE
 
-![Output](../Output_Tabelle.png) 
+![Output](/Output_Tabelle.png) 
 
                                          LISTE DER STUNDEN
 
-![Stunden](../Output_Stunden.png) 
+![Stunden](/Output_Stunden.png) 
 
 **0,0** für die Tage ohne Arbeit.
 
                                         LISTE DER BESCHREIBUNGEN
 
-![Beschreibung](../Output_Beschreibung.png)
+![Beschreibung](/Output_Beschreibung.png)
 
 **-** für die Tage ohne Arbeit.
 

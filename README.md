@@ -1,40 +1,39 @@
-# Kurzdokumentation
-
-[zurück zur Startseite **trial-and-error**](../../README.md)
-
-[zurück zu **Test-Entwicklungen**](../START.md)
-
----
-
 ## ARTINER - ARBEITSZEITRECHNER FUR KIMAI
 
----
-
-![ARTINER.jpg](../monthly-work-time-calculator/Dateien/Bilder/Artiner.png)
+![ARTINER.jpg](../Artiner.png)
 
 ### MOTIVATION
 
++ Um meine Arbeitsstunden im Auge zu behalten, trage ich meine Arbeitsstunden in [Kimai Zeiterfassung](https://www.kimai.org/de/) ein. 
 
-+ Als Werkstudent trage ich jeden Werktag meine Arbeitszeiten in die [Kimai Zeiterfassung](https://www.kimai.org/de/) ein, um den Überblick über meine Arbeitszeiten zu behalten.  
++ Am 15. eines jeden Monats muss ich eine [Excel-Tabelle](../Excel_Muster.jpg) mit meinen Arbeitsstunden der letzten 30 Tage an meinen Vorgesetzten HLE schicken.
 
-+ Vor dem 15. eines jeden Monats muss ich die Daten meiner Arbeitszeiten vom 16. des Vormonats bis zum 15. des aktuellen Monats in eine Excel-Tabelle eingeben. Dann exportiere ich diese [Excel-Tabelle (link zeigt die PDF-Layout)](../monthly-work-time-calculator/Dateien/Bilder/Excel_Muster.jpg) in eine PDF-Datei und schicke sie an [HLE](mailto:hleppin@berlincert.de), der diese PDF-Datei dann unterschreibt und an die Team-Assistenz weiterleitet. 
++ Aus diesem Grund muss ich jeden Monat die Daten aus Kimai in eine Excel-Tabelle übertragen.
 
 + Das Sortieren und Kopieren von Daten aus die KIMAI in eine Excel-Tabelle erfordert selbstverständlich viel Zeit und Mühe.
 
-+ Um diese Aufgabe durch Automatisierung zu erleichtern, haben wir ein Programm entwickelt : Artiner
++ Um diese Aufgabe durch Automatisierung zu erleichtern, haben ich ein Programm entwickelt : Artiner
+
+
 
 ### ÜBER ARTINER
 
-Artiner ist ein CLI-Tool, es liest die Daten aus der o.g. Kimai CSV-Datei, sortiert die Daten nach Datum und geben eine sortierte Ausgabe, die einfach in Excel kopiert werden kann.
++ Artiner ist ein CLI-Tool, das die Daten der Arbeitsstunden aus einer [CSV-Datei](../April_Mai_Faraz.csv) (die von KIMAI exportiert wurde) ausliest und diese Daten nach Datum sortiert und in Form einer Tabelle darstellt. Diese Daten können nun einfach kopiert und in das Excel-Blatt eingefügt werden.
 
-Der verwendete Code ist zu sehen unter `code/java/`
++ ![Unsorted](../Unsorted.png)
+
+                                Unsorted Data in Kimai
+
++ ![Sorted](../Output_Tabelle.png)                  
+
+                                    Sorted Data
+    
 
 ### VORAUSSETZUNG
 
-+ CSV-Datei [(Muster)](../monthly-work-time-calculator/Dateien/CSV/April_Mai_Faraz.csv) sollte zugänglich sein
++ CSV-Datei sollte zugänglich sein
 
 + Auf dem Computer muss [Java JDK 8+](https://docs.oracle.com/en/java/javase/20/install/installation-jdk-microsoft-windows-platforms.html#GUID-A7E27B90-A28D-4237-9383-A58B416071CA) installiert sein
-
 
 ### ANWENDUNG
 
@@ -43,38 +42,18 @@ Der verwendete Code ist zu sehen unter `code/java/`
 
 ![KIMAI](../monthly-work-time-calculator/Dateien/Bilder/KIMAI_Herunterladen.png)
 
-Öffnen Sie [Kimai](https://www.kimai.org/de/) (auf dem obigen Bild sehen Sie das Kimai Zeiterfassungssystem der [HLE](mailto:hleppin@berlincert.de)). Gehen Sie auf die "Meine Zeiten" Tab und laden Sie die Daten als csv-Datei herunter 
+Öffnen Sie [Kimai](https://www.kimai.org/de/) (auf dem obigen Bild sehen Sie das Kimai Zeiterfassungssystem der HLE. Gehen Sie auf die "Meine Zeiten" Tab und laden Sie die Daten als csv-Datei herunter 
 
-*Wenn Sie möchten, können Sie auch die Daten in der "Suchen" option in Kimai nach "Projekt" Filtern, vor dem downloaden.*
+Laden Sie nun [artiner.java](../backup.java) und [artiner.sh](../artiner.sh)
 
+**Schritt 2- **AUSFÜHREN (Linux)**
 
-Laden Sie nun [artiner.zip](../../test-development/monthly-work-time-calculator/downloads/artiner.zip) herunter und entpacken Sie es auf Ihrem Computer. Dieses `zip` enthält folgende Dateien :
++ Gehen Sie zu dem Ordner, in dem sich die Dateien artiner.java und artiner.sh befinden
 
-   + [artiner.jar](../monthly-work-time-calculator/Dateien/Jar/artiner.jar)
++ Geben Sie "bash artiner.sh + die Flags" ein, um das Tool auszuführen
 
-   + [artiner.bat](../monthly-work-time-calculator/code/cmd/artiner.bat) *(Windows)* **UND** [artiner.sh](../monthly-work-time-calculator/code/bash/artiner.sh) *(Linux)*
++ Zum Beispiel - "bash artiner.sh -i Mai.csv"
 
-
-
-
-
-
-
-**Schritt 2- AUSFÜHREN (Windows)** 
-
-Öffnen Sie jetzt `cmd` und geben Sie den vollständigen Dateipfad von `artiner.bat` ein, um Artiner auszuführen.
-
-*- zum Beispiel, wenn sich die Datei `artiner.bat` im unterverzeichnis ``Downloads/Artiner/`` befindet, sollten Sie den folgenden Befehl in cmd eingeben:* 
-
-```
-C:\Users\abm\Downloads\Artiner\artiner.bat 
-
-```
-
-                                      ALTERNATIV
-
-
-Fügen Sie die Datei artiner.bat zur Systemvariable path in Windows hinzu[(Video-Tutorial - 20:10 bis 24:15)](https://www.youtube.com/watch?v=etb_Y1Rlt4E). Dann brauchen Sie nur noch den Namen der Datei: "artiner.bat" in cmd eingeben, um Artiner zu starten.
 
 **Schritt 3 - INPUT** 
 
@@ -105,9 +84,9 @@ Allgemein kann ein Benutzer das Programm mit den folgenden Flags konfigurieren u
 
 + **-p oder --PauseOnly :** Nur den Bericht für die "Pause" ausgeben
  
-+ **-r oder --replacement :** Geben Sie den Dateipfad für die [ersatzdatei](../../test-development/monthly-work-time-calculator/Dateien/Konfigdateien/replacment.conf) an. Das Programm liest die Daten aus der Ersetzungsdatei und setzt sie in das Programm ein
++ **-r oder --replacement :** Geben Sie den Dateipfad für die [ersatzdatei](../replacment.conf) an. Das Programm liest die Daten aus der Ersetzungsdatei und setzt sie in das Programm ein
 
-+  **-C oder --configfile:**  Geben Sie den Dateipfad für die [Konfigurationsdatei](../../test-development/monthly-work-time-calculator/Dateien/Konfigdateien/artiner.conf) Datei
++  **-C oder --configfile:**  Geben Sie den Dateipfad für die [Konfigurationsdatei](../artiner.conf) Datei
 
 
 + **-o oder --OutputFormat :** Geben Sie das Ausgabeformat an: "T" für nur die Liste, "TL" für  Tabelle+List  
@@ -118,7 +97,7 @@ Allgemein kann ein Benutzer das Programm mit den folgenden Flags konfigurieren u
 **Fall 3- Konfigdatei**
 
  
-Verwenden Sie das Flag -C und geben Sie den Dateipfad der [Konfigurationsdatei](../../test-development/monthly-work-time-calculator/Dateien/Konfigdateien/artiner.conf) an, um das Tool mit dieser Datei zu konfigurieren
+Verwenden Sie das Flag -C und geben Sie den Dateipfad der [Konfigurationsdatei](../artiner.conf) an, um das Tool mit dieser Datei zu konfigurieren
 
 **Schritt 4- AUSGABE**- 
 
@@ -126,17 +105,17 @@ Das Programm gibt die sortierten Daten in dem vom Benutzer angegebenen Format au
                   
                                            OUTPUT TABELLE
 
-![Output](../monthly-work-time-calculator/Dateien/Bilder/Output_Tabelle.png) 
+![Output](../Output_Tabelle.png) 
 
                                          LISTE DER STUNDEN
 
-![Stunden](../monthly-work-time-calculator/Dateien/Bilder/Output_Stunden.png) 
+![Stunden](../Output_Stunden.png) 
 
 **0,0** für die Tage ohne Arbeit.
 
                                         LISTE DER BESCHREIBUNGEN
 
-![Beschreibung](../monthly-work-time-calculator/Dateien/Bilder/Output_Beschreibung.png)
+![Beschreibung](../Output_Beschreibung.png)
 
 **-** für die Tage ohne Arbeit.
 
@@ -147,28 +126,16 @@ Das Programm gibt die sortierten Daten in dem vom Benutzer angegebenen Format au
 Sie können jetzt einfach alle sortierten Daten aus dem CLI-Ausgabebildschirm auswählen und in Excel-Tabelle kopieren
 
 
-### ANWENDUNGSZWECK ??
+### ANWENDUNGSZWECK
 
 
 + Das Programm speichert keine der gelesenen Daten, weder auf der lokalen Festplatte noch auf einem Server
 
 
-### FUNKTIONSWEISE DES PROGRAMMS
-
-Um mehr über den Quellcode, die Logik und den Algorithmus von Artiner zu erfahren, klicken Sie hier - [InsideArtiner](werk.md)
 
 ### BEITRÄGE
 
 Wenn Sie zu diesem Projekt beitragen und es mit neuen Ideen verbessern möchten oder einen Fehler melden möchten, ist Ihre Anfrage sehr willkommen. Schreiben Sie mir einfach eine E-Mail an [ABM](mailto:mfabbas@berlincert.de)
 
 
----
 
-
-[zurück zu **Test-Entwicklungen**](../START.md)
-
-[zurück zur Startseite **trial-and-error**](../../README.md)
-
-
-
-   + [artiner.conf](../../test-development/monthly-work-time-calculator/Dateien/Sonstiges/artiner.properties) (die Standardkonfiguration Datei für Artiner)
